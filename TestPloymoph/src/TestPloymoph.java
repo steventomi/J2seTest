@@ -10,8 +10,12 @@ public class TestPloymoph {
 		g1.myPetScream(a);
 		g1.myPetScream(b);
 		g1.myPetScream(a1);
+		System.out.println(a instanceof Animals);
 		
-		System.out.println(c.getFurColor());
+		//System.out.println(a.eyesColor);
+		//这是不行的 因为子类的变量对父类的引用是不可见的
+		System.out.println(((Dog)a).eyesColor);
+		//刚才对eyescolor加了private 所以不可见 ，现在friendly了 且对a进行了对象类型转换；
 	}
 }
 
@@ -30,7 +34,7 @@ class Animals{
 }
 
 class Dog extends Animals{
-	private String eyesColor;
+    String eyesColor;
 	
 	public Dog(String name,String eyesColor ){
 		super(name , age);
@@ -86,9 +90,7 @@ class Girls{
 
 
 /*
-java动态绑定 有三个条件 存在继承 子类对父类的方法有重写 基类的引用指向子类对象
 
-基类的引用指向的对象和通过该引用调用的方法 实在java编译时候确定的
 */
 
 
