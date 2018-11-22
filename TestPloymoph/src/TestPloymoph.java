@@ -4,7 +4,7 @@ public class TestPloymoph {
 		Animals a  =  new Dog("dogWang","RED");
 		Animals b  =  new Cat("catZhang","black");
 		Animals a1 =  new Animals("huihui",12);
-	    Cat c = new Cat("guangjie","yellow");
+	    //Cat c = new Cat("guangjie","yellow");
 		Girls g1 = new Girls("hongli", 12);
 		
 		g1.myPetScream(a);
