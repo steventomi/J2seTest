@@ -1,0 +1,22 @@
+package com.abo.www.dp.filer;
+
+public class MessageProcessor {
+	String msg;
+	
+	public String getMsg(){
+		return msg;
+	}
+	
+
+	public void setMsg(String s){
+		this.msg = s;
+	}
+	
+	public String process(){
+		String r = new HtmlFilter().doFilter(msg);
+		return r;
+	}
+	
+	
+}
+//对消息动态过滤

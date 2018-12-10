@@ -1,0 +1,41 @@
+import java.awt.Color;
+import java.awt.Frame;
+import java.awt.Graphics;
+import java.awt.event.*;
+
+public class Yard extends Frame {
+	private static final int ROWS = 50 ;//常量写成大写的
+	private static final int COLS = 50 ;
+	private static final int BLOCK_SIZE = 15;
+	
+	public void launch(){
+		this.setLocation(300,300);
+		this.setSize(COLS*BLOCK_SIZE,ROWS*BLOCK_SIZE);
+		this.addWindowListener(new WindowAdapter(){
+			public void windowClosing(WindowEvent e){
+				System.exit(-1);
+			}
+		});
+		this.setVisible(true);
+	}
+	
+	
+	@Override
+	public void paint(Graphics g) {
+		Color c =g.getColor();
+		g.setColor(Color.gray);
+		g.fillRect(0, 0, COLS*BLOCK_SIZE, ROWS*BLOCK_SIZE);
+		for(int i = 0 ; i <= ROWS; i++ ){
+			g.drawLine(0, BLOCK_SIZE*i, CLOS*BLOCK_SIZE, BLOCK_SIZE*i);
+		}
+		super.paint(g);
+	}
+
+
+	public static void main(String[] args) {
+		new Yard().launch();
+	
+
+	}
+
+}

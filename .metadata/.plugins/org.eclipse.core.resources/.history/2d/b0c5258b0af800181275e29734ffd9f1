@@ -1,0 +1,11 @@
+package com.abo.www.dp.filer;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String msg = "hello :), <script>, 敏感，被就业";
+		
+	}
+
+}

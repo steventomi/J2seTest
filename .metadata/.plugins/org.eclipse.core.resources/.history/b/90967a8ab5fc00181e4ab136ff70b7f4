@@ -1,0 +1,33 @@
+package com.abo.www.jun;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Scanner;
+
+//import com.mysql.jdbc.Connection;
+
+public class JDBCDemo{
+	public static void main(String[] arg) throws SQLException, ClassNotFoundException{
+		String strurl = "com.mysql.jdbc.Driver";
+		Class.forName(strurl);
+		String url = "JDBC:MYSQL://127.0.01:3306/jun";
+		String username = "root";
+		String passworld = "jiangjun";
+		Connection con = DriverManager.getConnection(url,username,passworld);
+		Scanner sc = new Scanner(System.in);
+		String usn = sc.nextLine();
+		String psw = sc.nextLine();
+		
+		Statement sta = con.createStatement();
+		sta.executeUpdate("insert into user vlaues ("+ usn + "," +"psw" +")");
+		String sql = "select * from users";
+		ResultSet ret = sta.executeQuery(sql);
+		while(ret.next()){
+			System.out.println(ret.getString("USERNAMe") + "    " + ret.getString("PASSWORD"));
+		}
+		//System.out.println(con);
+	}
+} 

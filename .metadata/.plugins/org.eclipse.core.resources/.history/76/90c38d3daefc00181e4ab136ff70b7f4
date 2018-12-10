@@ -1,0 +1,23 @@
+package com.abo.www.jun;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+//import com.mysql.jdbc.Connection;
+
+public class JDBCDemo{
+	public static void main(String[] arg) throws SQLException, ClassNotFoundException{
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/jun","root","jiangjun");
+		Statement sta = con.createStatement();
+		ResultSet s = sta.executeQuery("select * from student");
+		System.out.println(s.next());
+		sta.close();
+		con.close();
+		s.close();
+		
+	}
+} 

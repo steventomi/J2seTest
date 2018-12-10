@@ -1,0 +1,9 @@
+package com.abo.www.jun;
+import java.sql.*;
+public class JDBCDemo {
+	public static void main(String[] arg){
+		//1.驱动注册 java.sql.DriverManger 静态方法registerDriver(Driver driver)
+		DriverManager.registerDriver(new Driver());
+		
+	}
+}

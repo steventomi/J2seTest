@@ -1,0 +1,60 @@
+package JDBCUtils;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class JDBCUtils {
+	private JDBCUtils(){}
+	
+	static{
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public static Connection getConnection(){
+		try{
+			
+	    //String strurl = "com.mysql.jdbc.Driver";
+		//Class.forName(strurl);
+		String url = "JDBC:MYSQL://127.0.01:3306/jun";
+		String username = "root";
+		String passworld = "jiangjun";
+		Connection con = DriverManager.getConnection(url,username,passworld);
+			
+		//Connection con = DriverManager.getConnection(" JDBC:MYSQL://127.0.01:3306/jun","root","jiangjun");
+		return con;
+		}catch(SQLException ae){
+			ae.printStackTrace();
+		}
+		return null;
+			
+	}
+	
+	public static void close(Connection con, Statement sta, ResultSet rst){
+		try {
+			con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			sta.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			rst.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}
